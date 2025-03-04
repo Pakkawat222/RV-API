@@ -101,7 +101,7 @@ app.get("/products", async (req, res) => {
     res.json(products);
   });
   
-  app.post("/products", async (req, res) => {
+  app.post('/product', async (req, res) => {
     const product = new Product(req.body);
     await product.save();
     res.json(product);
