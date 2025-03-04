@@ -96,12 +96,16 @@ app.get('/', (req, res) => {
         </html>
     `);
 });
-
-app.post("/products", async (req, res) => {
+app.get("/products", async (req, res) => {
+    const products = await Product.find();
+    res.json(products);
+  });
+  
+  app.post("/products", async (req, res) => {
     const product = new Product(req.body);
     await product.save();
     res.json(product);
-});
+  });
   
 
   const PORT = process.env.PORT || 5000;
